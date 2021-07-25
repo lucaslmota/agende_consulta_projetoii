@@ -1,15 +1,17 @@
 <template>
-  <Index/>
+  <router-view/>
 </template>
 
 <script>
 import './css/bootstrap.min.css'
-import Index from './components/Index.vue'
+import './css/bootstrap.min.style.css'
+
 export default {
-  components:{Index}
+  
 }
 </script>
 
 <style>
+
 
 </style>

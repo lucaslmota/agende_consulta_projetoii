@@ -16,26 +16,36 @@
                             </div>
                             <hr>
 
-                            <form action="pgInicial.html" name="form" class="needs-validation" novalidate>
+                            <form @submit.prevent="prevSubmit()"
+                                action="pgInicial.html" 
+                                name="form"
+                                class="needs-validation">
                                 <!-- Login -->
                                 <div>
                                    
                                     <div class="form-group left-inner-addon">
                                         <i class="fa fa-user"></i>
-                                        <input type="email" id="email" name="email" onblur="validarEmail(form.email)"
-                                            class="form-control" placeholder="Digite seu Login" required>
-                                        <div class="invalid-feedback">
-                                            Login inválido.
-                                        </div>
+                                        <input 
+                                            type="email" 
+                                            id="email" 
+                                            name="email"
+                                            v-model="dadosLogin.email"
+                                            onblur="validarEmail(form.email)"
+                                            class="form-control" 
+                                            placeholder="Digite seu Login" 
+                                            required>
                                     </div>
                                     <!-- Senha -->
                                     <div class="form-group left-inner-addon">
                                         <i class="fas fa-lock"></i>
-                                        <input type="password" id="senha" name="senha" class="form-control"
-                                        pattern="[0-9a-fA-F]{8}" placeholder="Digite sua senha" required>
-                                        <div class="invalid-feedback">
-                                            Senha inválida.
-                                        </div>
+                                        <input 
+                                            type="password" 
+                                            id="senha" 
+                                            name="senha"
+                                            v-model="dadosLogin.senha"
+                                            class="form-control"
+                                            placeholder="Digite sua senha" 
+                                            required>
                                     </div>
 
                                     <button type="submit" class="btn btn-primary btn-lg btn-block"
@@ -62,7 +72,18 @@
 
 <script>
 export default {
+data() {
+    return {
+        dadosLogin:{
+            email:'',
+            senha:''
+        }
+    }
+},
 
+methods: {
+    prevSubmit() {},
+},
 }
 </script>
 
