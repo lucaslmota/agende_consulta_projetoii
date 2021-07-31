@@ -26,6 +26,16 @@ const routes = [
     path: "/consultas-marcadas",
     name:"Consultas Marcadas",
     component: () => import("../views/ConsultasMarcadas.vue")
+  },
+  {
+    path: "/lista-medicos",
+    name:"Lista Médicos",
+    component: () => import("../views/ListaMedicos.vue")
+  },
+  {
+    path: "/lista-pacientes",
+    name:"Lista Pacientes",
+    component: () => import("../views/ListaPacientes.vue")
   }
   
 ]

@@ -37,6 +37,12 @@
             </li>
 
             <li class="nav-item">
+                <router-link to="lista-pacientes" class="nav-link">
+                    <i class="fas fa-edit"></i><span>Lista de Pacientes</span>
+                </router-link>
+            </li>
+
+            <li class="nav-item">
                 <router-link to="/" class="nav-link">
                     <i class="fas fa-edit"></i><span>Sair</span>
                 </router-link>
