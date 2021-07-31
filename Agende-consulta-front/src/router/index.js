@@ -11,6 +11,16 @@ const routes = [
     path: "/pagina-inicial",
     name:"Pagina Inicial",
     component: () => import("../components/PaginaInicial.vue")
+  },
+  {
+    path: "/cadastro-paciente",
+    name:"Cadastro Paciente",
+    component: () => import("../components/cadPaciente.vue")
+  },
+  {
+    path: "/cadastro-medico",
+    name:"Cadastro Médico",
+    component: () => import("../components/cadMedico.vue")
   }
   
 ]
