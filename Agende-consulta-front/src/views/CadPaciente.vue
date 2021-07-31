@@ -6,27 +6,26 @@
           <div class="col-lg-5 d-none d-lg-block bg-primary">
             <div class="text-center">
               <br>
-              <img src="" alt="" id="logo" width="70%">
+              <img src="" alt="" id="logo">
             </div>
           </div>
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Cadastro de Médico</h1>
+                <h1 class="h4 text-gray-900 mb-4">Cadastro de Paciente</h1>
               </div>
               <hr>
 
               <form action="pgInicial.html" name="form" method="POST" class="needs-validation" novalidate>
                 <div>
-                     <!-- Dados de contato -->
-                    <label for=""><i class="fas fa-user"></i> Dados de Contato</label><br>
-
+                  <!-- Dados para Acesso -->
+                  <label for=""><i class="fas fa-user"></i> Dados de Contato</label><br>
 
                   <div class="form-group left-inner-addon">
                     <!-- E-mail -->
                     <i class="fas fa-envelope"></i>
                     <input type="email" name="email" onblur="validarEmail(form.email)" class="form-control"
-                      placeholder="E-mail do medico" v-model="email" required>
+                      placeholder="E-mail do paciente" v-model="email" required>
                     <div class="invalid-feedback">
                       Seu e-mail é obrigatório.
                     </div>
@@ -58,7 +57,7 @@
 
                 <div>
                   <!-- Dados Pessoais -->
-                  <label for=""><i class="fas fa-list-ul"></i> Dados do Pessoais</label>
+                  <label for=""><i class="fas fa-list-ul"></i> Dados Pessoais</label>
 
                   <div class="form-row">
                     <div class="col">
@@ -77,7 +76,7 @@
                       <!-- Data -->
                       <input type="date" class="form-control" placeholder="Data de nascimento" v-model="dtNascimento" required>
                       <div class="invalid-feedback">
-                        Data de nascimento é obrigatória.
+                        Sua data de nascimento é obrigatória.
                       </div>
                     </div>
 
@@ -96,42 +95,71 @@
                   </div>
 
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="CPF do médico"
+                    <!-- CNPJ -->
+                    <input type="text" class="form-control" placeholder="CPF do paciente"
                       pattern="/^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})$/" data-mask="000.000.000.-00" v-model="cpf">
                   </div>
                 </div>
                 <hr>
 
                 <div>
-                  <!-- Dados Médicos -->
-                  <label for=""><i class="fas fa-map-marker-alt"></i> Dados Médicos</label>
+                  <!-- Endereço -->
+                  <label for=""><i class="fas fa-map-marker-alt"></i> Endereço</label>
 
                   <div class="form-row">
-                    <!-- CRM e Estado -->
+                    <!-- Rua e CEP -->
                     <div class="form-group col-md-8">
-                      <!-- CRM -->
-                      <input type="text" class="form-control" placeholder="Digite o CRM" v-model="crm" required>
+                      <!-- Rua -->
+                      <input type="text" class="form-control" placeholder="Digite a rua" v-model="rua" required>
                       <div class="invalid-feedback">
-                        CRM é obrigatório.
+                        Seu endereço é obrigatório.
                       </div>
                     </div>
 
                     <div class="form-group col-md-4">
-                      <!-- ESTADO -->
-                      <input type="text" class="form-control" placeholder="Digite o estado" v-model="estado" required>
+                      <!-- CEP -->
+                      <input type="text" class="form-control" placeholder="Digite o CEP"
+                        pattern="\[0-9]{5}\[\s]-[0-9]{3}" data-mask="00000-000" v-model="cep" required>
                         <div class="invalid-feedback">
-                          Estado é obrigatório.
+                          O cep é obrigatório.
                         </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <!-- Nº e Complemento -->
+                    <div class="form-group col-md-4">
+                      <!-- Nº -->
+                      <input type="text" class="form-control" placeholder="Digite o Nº" v-model="numCasa">
+                    </div>
+
+                    <div class="form-group col-md-8">
+                      <!-- Complemento -->
+                      <input type="text" class="form-control" placeholder="Digite o complemento" v-model="complemento">
                     </div>
                   </div>
                   
                   <div class="form-group">
-                    <!-- CBOS -->
-                    <input type="text" class="form-control" placeholder="Digite o CBOS" v-model="cbos">
+                    <!-- Bairro -->
+                    <input type="text" class="form-control" placeholder="Digite o Bairro" v-model="bairro">
+                  </div>
+
+                  <div class="form-row">
+                    <!-- Cidade e Estado -->
+                    <div class="form-group col-md-12">
+                      <!-- Cidade -->
+                      <input type="text" class="form-control" placeholder="Digite a cidade" v-model="cidade" required>
+                      <div class="invalid-feedback">
+                        Digite uma cidade válida.
+                      </div>
+                    </div>
                   </div>
                   <hr>
-                  <button type="reset" class="btn btn-primary btn-lg btn-block" onclick="">Voltar</button>
-                  <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="location.href='index.html';">Cadastar</button>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="location.href='index.html';">Cadastar</button><br/>
+                  <router-link to="pagina-inicial">
+                      <button type="reset" class="btn btn-primary btn-lg btn-block">Voltar</button>
+                  </router-link>
+                  
 
                 </div>
               </form>
@@ -144,8 +172,10 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-    nome: 'CadMedico',
+  nome: 'CadPaciente',
       data() {
             return {
                 nome: "",
@@ -155,12 +185,65 @@ export default {
                 dtNascimento: "",
                 sexo: "",
                 cpf: "",
-                crm: "",
-                estado: "",
-                cbos: ""          
+                rua: "",
+                cep: "",
+                numCasa: "",
+                complemento: "",
+                bairro: "",
+                cidade: ""          
             }
       },
+      methods: {
+        PostPaciente(){
+            let obj ={
+              nome: this.nome,
+              email: this.email,
+              telefone: this.telefone,
+              celular: this.celular,
+              dtNascimento: this.dtNascimento,
+              sexo: this.sexo,
+              cpf: this.cpf,
+              rua: this.rua,
+              cep: this.cep,
+              numCasa: this.numCasa,
+              complemento: this.complemento,
+              bairro: this.bairro,
+              cidade: this.cidade  
+            };
 
+            // FALTA ALTERAR BASE
+            axios.post(this.baseURI, obj).then((result) =>{ 
+              this.carros = result.data
+            })
+        },
+
+        PutPaciente(){
+            let obj ={
+              nome: this.nome,
+              email: this.email,
+              telefone: this.telefone,
+              celular: this.celular,
+              dtNascimento: this.dtNascimento,
+              sexo: this.sexo,
+              cpf: this.cpf,
+              rua: this.rua,
+              cep: this.cep,
+              numCasa: this.numCasa,
+              complemento: this.complemento,
+              bairro: this.bairro,
+              cidade: this.cidade  
+            };
+
+            // FALTA ALTERAR BASE
+            axios.put(this.baseURI+"/" + this.id, obj).then((result) =>{
+              console.log(result)
+            })
+        },
+
+        DeletePaciente(){
+          axios.delete(this.baseURI +"/"+this.id,).then((result) =>{})
+        }
+      },
 }
 </script>
 

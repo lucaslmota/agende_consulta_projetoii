@@ -13,33 +13,33 @@
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item">
-                <a class="nav-link" href="pgInicial.html">
-                    <i class="fas fa-home"></i>
-                    <span>Página Inicial</span></a>
+                <router-link to="cadastro-paciente" class="nav-link">
+                    <i class="fas fa-edit"></i><span>Cadastrar Paciente</span>
+                </router-link>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="cadUser.html">
-                    <i class="fas fa-edit"></i>
-                    <span>Cadastrar Paciente</span></a>
+                <router-link to="cadastro-medico" class="nav-link">
+                    <i class="fas fa-edit"></i><span>Cadastrar Médico</span>
+                </router-link>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="cadMedico.html">
-                    <i class="fas fa-user-md"></i>
-                    <span>Cadastrar Medico</span></a>
+                <router-link to="consultas-marcadas" class="nav-link">
+                    <i class="fas fa-edit"></i><span>Consultas Marcadas</span>
+                </router-link>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="editarUser.html">
-                    <i class="fas fa-edit"></i>
-                    <span>Editar Consulta</span></a>
+                <router-link to="lista-medicos" class="nav-link">
+                    <i class="fas fa-edit"></i><span>Lista de Medicos</span>
+                </router-link>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-sign-in-alt"></i>
-                    <span>Sair</span></a>
+                <router-link to="/" class="nav-link">
+                    <i class="fas fa-edit"></i><span>Sair</span>
+                </router-link>
             </li>
 
             <hr class="sidebar-divider d-none d-md-block">
