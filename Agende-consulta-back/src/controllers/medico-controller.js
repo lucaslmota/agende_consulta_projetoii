@@ -2,8 +2,8 @@ const Medico = require("../models/medico-model");
 const MedicoService = require("../services/medico-service");
 var medicoService = new MedicoService();
 
-exports.get = (req, res) => {
-    res.json(medicoService.getAll());
+exports.get = async (req, res) => {
+    res.json(await medicoService.getAll());
   };
 
   exports.getByNome = (req, res) =>{

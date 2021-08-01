@@ -3,8 +3,8 @@ const PacienteService = require("../services/paciente-service");
 
 var pacienteService = new PacienteService();
 
-exports.get = (req, res)=>{
-    res.json(pacienteService.getAll());
+exports.get = async (req, res)=>{
+    res.json(await pacienteService.getAll());
 };
 
 exports.getByNome = (req,res) =>{

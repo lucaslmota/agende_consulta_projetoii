@@ -14,7 +14,7 @@ const medicos = require("./routes/medico-route");
 
 app.use("/", index);
 app.use("/pacientes",pacientes);
-app.use("/medicos",pacientes);
+app.use("/medicos",medicos);
 app.use((req, res, next) => {
     res.status(404).send({
       status: 404,

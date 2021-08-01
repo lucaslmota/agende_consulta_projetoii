@@ -1,3 +1,4 @@
+const medicoRepo = require("../repositories/medico-repo");
 class MedicoService {
     constructor() {
       this.medicos = [];
@@ -11,7 +12,7 @@ class MedicoService {
     }
     
     getAll() {
-      return this.medicos;
+      return medicoRepo.findAll();
     }
     
     getByNome(nome) {
