@@ -214,5 +214,64 @@ export default {
 </script>
 
 <style>
+.botoes{
+    width: 400px;
+    position: relative;
+    left: 35%;
+}
+
+.line {
+    display: inline-block;
+}
+
+.bt{
+    width: 100px;
+}
+
+.ml-2{
+    text-align: center;
+}
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+    /*color: ;*/
+}
+.left-inner-addon input.form-control {
+    padding-left: 30px;
+}
+
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #666;
+    margin-right: 0.5em;
+}
+
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+    content: "";
+}
+
+#register-image{
+    background-color: #023e8a;
+    background-position:center;
+    background-size:cover;
+}
+
+#logo {
+    width: 100%;
+}
+
+.img-arredondada {
+    border-radius: 50%;
+    background-position: -15px -15px;
+    height: 195px;
+    width: 195px;
+    background-image: url(../assets/Avatar.png);
+}
 
 </style>

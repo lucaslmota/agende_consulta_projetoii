@@ -15,7 +15,7 @@
                                 <td>HORÁRIO</td>
                             </tr>
                             <!-- FALTA ALTERAR -->
-                            <tr  v-for="carro in carroMarca " :key="carro.id" >
+                            <tr  v-for="consulta in consultas " :key="consulta.id" >
                                 <td></td>
                                 <td>{{ consulta.paciente}}</td>
                                 <td>{{ consulta.medico }}</td>
