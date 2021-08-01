@@ -26,11 +26,10 @@
                                     <div class="form-group left-inner-addon">
                                         <i class="fa fa-user"></i>
                                         <input 
-                                            type="email" 
-                                            id="email" 
-                                            name="email"
-                                            v-model="email"
-                                            onblur="validarEmail(form.email)"
+                                            type="text" 
+                                            id="usuario" 
+                                            name="usuario"
+                                            v-model="usuario"
                                             class="form-control" 
                                             placeholder="Digite seu Login" 
                                             required>
@@ -76,7 +75,6 @@ export default {
    
 data() {
     return {
-        
             email:'',
             senha:'',
             baseURI:""

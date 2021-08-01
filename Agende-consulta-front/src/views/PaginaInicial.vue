@@ -25,6 +25,18 @@
             </li>
 
             <li class="nav-item">
+                <router-link to="cadastro-usuario" class="nav-link">
+                    <i class="fas fa-edit"></i><span>Cadastrar Usuário</span>
+                </router-link>
+            </li>
+
+            <li class="nav-item">
+                <router-link to="marcar-consulta" class="nav-link">
+                    <i class="fas fa-edit"></i><span>Marcar Consulta</span>
+                </router-link>
+            </li>
+
+            <li class="nav-item">
                 <router-link to="consultas-marcadas" class="nav-link">
                     <i class="fas fa-edit"></i><span>Consultas Marcadas</span>
                 </router-link>
@@ -82,10 +94,11 @@
                     </ul>
                 </nav>
 
+                 <!--  
                 <div class="container">
 
 
-                    <div class="row">
+                 <div class="row">
                         <div class="col-sm-4" >
                             <div class="card">
                                 <div class="card-header">
@@ -115,6 +128,7 @@
                         
                     </div>
                 </div>
+                -->
                
             </div>
              <footer class="sticky-footer bg-white shadow">

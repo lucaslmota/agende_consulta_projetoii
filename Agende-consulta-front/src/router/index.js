@@ -36,6 +36,16 @@ const routes = [
     path: "/lista-pacientes",
     name:"Lista Pacientes",
     component: () => import("../views/ListaPacientes.vue")
+  },
+  {
+    path: "/cadastro-usuario",
+    name:"Cadastro Usúario",
+    component: () => import("../views/CadUsuario.vue")
+  },
+  {
+    path: "/marcar-consulta",
+    name:"Marcar Consulta",
+    component: () => import("../views/MarcarConsulta.vue")
   }
   
 ]
