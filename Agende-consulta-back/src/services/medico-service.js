@@ -2,21 +2,18 @@ class MedicoService {
     constructor() {
       this.medicos = [];
       this.id = 0;
-      this.qtd = 0;
     }
     
-    add(paciente) {
+    add(medico) {
       this.id++;
-      carro.id = this.id;
-      this.medicos.push(paciente);
+      medico.id = this.id;
+      this.medicos.push(medico);
     }
     
     getAll() {
       return this.medicos;
     }
     
-    
-  
     getByNome(nome) {
       return this.medicos.filter(function (c) {
           return c.nome == nome;
@@ -25,11 +22,12 @@ class MedicoService {
     }
   
     
-    update(id, paciente) {
+    
+    update(id, medico) {
       this.medicos.forEach(function (c) {
         if (id && id == c.id) {
-          for (var i in paciente) {
-            c[i] = paciente[i];
+          for (var i in medico) {
+            c[i] = medico[i];
           }
         }
       });

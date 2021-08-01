@@ -1,3 +1,4 @@
+const pacienteRepo = require("../repositories/paciente-repo");
 class PacienteService {
     constructor() {
       this.pacientes = [];
@@ -11,8 +12,8 @@ class PacienteService {
       this.pacientes.push(paciente);
     }
     
-    getAll() {
-      return this.pacientes;
+    getAll(){
+      return pacienteRepo.findAll();
     }
     
     
