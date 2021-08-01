@@ -1,18 +1,20 @@
 const express = require("express");
-app = express();
-port = 3000;
+const app = express();
+const port = 3000;
+const cors = require("cors");
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Rotas
 const index = require("./routes/index");
+const pacientes = require("./routes/paciente-route");
 const medicos = require("./routes/medico-route");
-const pacientes = require("./routes/paciente-route")
 
 app.use("/", index);
-app.use("/medicos", medicos);
 app.use("/pacientes",pacientes);
+app.use("/medicos",pacientes);
 app.use((req, res, next) => {
     res.status(404).send({
       status: 404,
