@@ -6,19 +6,19 @@ exports.get = async (req, res) => {
     res.json(await medicoService.getAll());
   };
 
-  exports.getByNome = (req, res) =>{
-    res.json(medicoService.getByNome(req.query.nome));
+  exports.getByNome = async (req, res) =>{
+    res.json(await medicoService.getByNome(req.query.nome));
   };
 
-  exports.post = (req, res) => {
-    res.json(medicoService.add(new Medico(req.body.email,req.body.senha,req.body.nome,req.body.sobreNome,req.body.celular,req.body.telFixo,req.body.cpf,req.body.crm )));
+  exports.post = async (req, res) => {
+    res.json(await medicoService.add(new Medico(req.body.email,req.body.senha,req.body.nome,req.body.sobrenome,req.body.celular,req.body.telfixo,req.body.cpf,req.body.crm )));
   };
 
-  exports.put = (req, res) => {
+  exports.put = async (req, res) => {
     res.json(
-      medicoService.update(
+     await medicoService.update(
         req.params.id,
-        new Medico(req.body.email,req.body.senha,req.body.nome,req.body.sobreNome,req.body.celular,req.body.telFixo,req.body.cpf,req.body.crm)
+        new Medico(req.body.email,req.body.senha,req.body.nome,req.body.sobrenome,req.body.celular,req.body.telfixo,req.body.cpf,req.body.crm)
       )
     );
   };
