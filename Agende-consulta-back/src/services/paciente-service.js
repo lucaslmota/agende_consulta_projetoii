@@ -1,15 +1,9 @@
 const pacienteRepo = require("../repositories/paciente-repo");
 class PacienteService {
-    constructor() {
-      this.pacientes = [];
-      this.id = 0;
-      this.qtd = 0;
-    }
+    
     
     add(paciente) {
-      this.id++;
-      carro.id = this.id;
-      this.pacientes.push(paciente);
+      return pacienteRepo.save(paciente)
     }
     
     getAll(){
@@ -19,27 +13,17 @@ class PacienteService {
     
   
     getByNome(nome) {
-      return this.pacientes.filter(function (c) {
-          return c.nome == nome;
-      });
+      return pacienteRepo.findByName(nome);
       
     }
   
     
     update(id, paciente) {
-      this.pacientes.forEach(function (c) {
-        if (id && id == c.id) {
-          for (var i in paciente) {
-            c[i] = paciente[i];
-          }
-        }
-      });
+     return pacienteRepo.update(id,paciente);
     }
     
     delete(id) {
-      this.pacientes = this.pacientes.filter(function (c) {
-        return c.id != id;
-      });
+      return pacienteRepo.delete(id);
     }
   }
     

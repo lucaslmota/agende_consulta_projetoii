@@ -1,11 +1,11 @@
 class Medico{
-    constructor(email,senha,nome,sobreNome,celular,telFixo,cpf,crm){
+    constructor(email,senha,nome,sobrenome,celular,telfixo,cpf,crm){
         this.email = email;
         this.senha = senha;
         this.nome = nome;
-        this.sobreNome = sobreNome;
+        this.sobrenome = sobrenome;
         this.celular = celular;
-        this.telFixo = telFixo;
+        this.telfixo = telfixo;
         this.cpf = cpf;
         this.crm = crm;
     }

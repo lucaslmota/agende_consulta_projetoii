@@ -1,16 +1,16 @@
 class Paciente{
-    constructor(email,celular,telFixo,nome,sobreNome,dataNascimento,sexo,cpf,rua,cep,numCasa,complemento,bairro,cidade){
+    constructor(email,celular,telfixo,nome,sobrenome,datanascimento,sexo,cpf,rua,cep,numcasa,complemento,bairro,cidade){
         this.email = email;
         this.celular = celular;
-        this.telFixo = telFixo;
+        this.telfixo = telfixo;
         this.nome = nome;
-        this.sobreNome = sobreNome;
-        this.dataNascimento = dataNascimento;
+        this.sobrenome = sobrenome;
+        this.datanascimento = datanascimento;
         this.sexo = sexo;
         this.cpf = cpf;
         this.rua = rua;
         this.cep = cep;
-        this.numCasa = numCasa;
+        this.numcasa = numcasa;
         this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;

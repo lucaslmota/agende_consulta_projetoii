@@ -3,46 +3,46 @@ const PacienteService = require("../services/paciente-service");
 
 var pacienteService = new PacienteService();
 
-exports.get = (req, res)=>{
-    res.json(pacienteService.getAll());
+exports.get = async (req, res)=>{
+    res.json(await pacienteService.getAll());
 };
 
-exports.getByNome = (req,res) =>{
-    res.json(pacienteService.getByNome(req.query.nome));
+exports.getByNome = async (req,res) =>{
+    res.json(await pacienteService.getByNome(req.query.nome));
 };
 
-exports.post = (req, res) =>{
-    res.json(pacienteService.add(new Paciente(
+exports.post = async (req, res) =>{
+    res.json(await pacienteService.add(new Paciente(
         req.body.email,
         req.body.celular,
-        req.body.telFixo,
+        req.body.telfixo,
         req.body.nome,
-        req.body.sobreNome,
-        req.body.dataNascimento,
+        req.body.sobrenome,
+        req.body.datanascimento,
         req.body.sexo,
         req.body.cpf,
         req.body.rua,
         req.body.cep,
-        req.body.numCasa,
+        req.body.numcasa,
         req.body.complemento,
         req.body.bairro,
         req.body.cidade)));
 };
 
-exports.put = (req,res) =>{
-    res.json(pacienteService.update(req.params.id,
+exports.put = async (req,res) =>{
+    res.json(await pacienteService.update(req.params.id,
         new Paciente( 
             req.body.email,
         req.body.celular,
-        req.body.telFixo,
+        req.body.telfixo,
         req.body.nome,
-        req.body.sobreNome,
-        req.body.dataNascimento,
+        req.body.sobrenome,
+        req.body.datanascimento,
         req.body.sexo,
         req.body.cpf,
         req.body.rua,
         req.body.cep,
-        req.body.numCasa,
+        req.body.numcasa,
         req.body.complemento,
         req.body.bairro,
         req.body.cidade)));
