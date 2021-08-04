@@ -47,13 +47,12 @@
                                             required>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block"
-                                        onclick="">Entrar</button>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" @click="login">Entrar</button>
 
                                     <hr>
 
                                     <div class="text-center">
-                                        <a class="small text-primary" href="recSenha.html">Verifique seu agendamento</a>
+                                        <a class="small text-primary">Verifique seu agendamento</a>
                                     </div>
 
                                     <footer>
@@ -70,22 +69,40 @@
 </template>
 
 <script>
+import axios from "axios";
 
 export default {
    
 data() {
     return {
-            email:'',
-            senha:'',
-            baseURI:""
-        
+            nome: "",
+            usuario: "",
+            senha: "",
+            usuarios: [],
+            usuarios: [],
+            baseURI:"http://localhost:3000/usuarios"    
     }
 },
 
 methods: {
-    prevSubmit() {},
+    methods:{
+        getAll() {
+            axios.get(this.baseURI).then((result) =>{
+                    this.pacientes = result.data
+                })
+        },
+
+        login(usuario) {
+            
+
+        }
+    }
     
 },
+    
+    created: function(){
+        this.$nextTick(this.getAll)
+    }
 }
 </script>
 

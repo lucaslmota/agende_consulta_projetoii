@@ -97,7 +97,7 @@
                             </div>
                         </div>
                   <hr>
-                  <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="location.href='index.html';">Marcar</button><br/>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" @click="PostConsulta">Marcar</button><br/>
                   <router-link to="pagina-inicial">
                       <button type="reset" class="btn btn-primary btn-lg btn-block">Voltar</button>
                   </router-link>
@@ -130,9 +130,16 @@ export default {
                 medico: "",
                 paciente: "",
                 data: "",
-                hora: ""      
+                hora: "",
+                consultas: [],
+                medicos: [],
+                pacientes: [],
+                baseURI:"http://localhost:3000/consultas",
+                baseURIMedicos:"http://localhost:3000/medicos",
+                baseURIPacientes:"http://localhost:3000/pacientes"        
             }
-      },
+        },
+
       methods: {
         PostConsulta(){
             let obj ={
@@ -142,9 +149,9 @@ export default {
                 hora: this.hora    
             };
 
-            // FALTA ALTERAR BASE
+            
             axios.post(this.baseURI, obj).then((result) =>{ 
-              this.carros = result.data
+              this.consultas = result.data
             })
         },
 
@@ -156,7 +163,7 @@ export default {
                 hora: this.hora   
             };
 
-            // FALTA ALTERAR BASE
+            
             axios.put(this.baseURI+"/" + this.id, obj).then((result) =>{
               console.log(result)
             })
@@ -164,9 +171,24 @@ export default {
 
         DeleteConsulta(){
           axios.delete(this.baseURI +"/"+this.id,).then((result) =>{})
+        },
+
+        getMedicoPaciente() {
+            axios.get(this.baseURIMedicos).then((result) =>{
+                    this.medicos = result.data
+                }),
+
+            axios.get(this.baseURIPacientes).then((result) =>{
+                    this.pacientes = result.data
+                })
         }
-      }
+    },
+   
+    created: function(){
+        this.$nextTick(this.getMedicoPaciente)
+    }
 }
+
 </script>
 
 <style>

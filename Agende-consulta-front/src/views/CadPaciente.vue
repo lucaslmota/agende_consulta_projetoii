@@ -16,7 +16,7 @@
               </div>
               <hr>
 
-              <form action="pgInicial.html" name="form" method="POST" class="needs-validation" novalidate>
+              <form name="form" method="POST" class="needs-validation" novalidate>
                 <div>
                   <!-- Dados para Acesso -->
                   <label for=""><i class="fas fa-user"></i> Dados de Contato</label><br>
@@ -155,7 +155,7 @@
                     </div>
                   </div>
                   <hr>
-                  <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="location.href='index.html';">Cadastar</button><br/>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" @click="PostPaciente">Cadastar</button><br/>
                   <router-link to="pagina-inicial">
                       <button type="reset" class="btn btn-primary btn-lg btn-block">Voltar</button>
                   </router-link>
@@ -190,7 +190,9 @@ export default {
                 numCasa: "",
                 complemento: "",
                 bairro: "",
-                cidade: ""          
+                cidade: "",
+                pacientes: [],
+                baseURI:"http://localhost:3000/pacientes"         
             }
       },
       methods: {
@@ -211,10 +213,10 @@ export default {
               cidade: this.cidade  
             };
 
-            // FALTA ALTERAR BASE
-            // axios.post(this.baseURI, obj).then((result) =>{ 
-            // this.carros = result.data
-            // })
+            axios.post(this.baseURI, obj).then((result) =>{ 
+              this.pacientes = result.data
+            })
+            alert("PACIENTE CADASTRADO!");
         },
 
         PutPaciente(){
@@ -231,18 +233,19 @@ export default {
               numCasa: this.numCasa,
               complemento: this.complemento,
               bairro: this.bairro,
-              cidade: this.cidade  
+              cidade: this.cidade
+
             };
 
-            // FALTA ALTERAR BASE
-            // axios.put(this.baseURI+"/" + this.id, obj).then((result) =>{
-            //   console.log(result)
-            // })
+          
+            axios.put(this.baseURI+"/" + this.id, obj).then((result) =>{
+              console.log(result)
+            })
         },
 
-        // DeletePaciente(){
-        //   axios.delete(this.baseURI +"/"+this.id,).then((result) =>{})
-        // }
+        DeletePaciente(){
+           axios.delete(this.baseURI +"/"+this.id,).then((result) =>{})
+        }
       },
 }
 </script>

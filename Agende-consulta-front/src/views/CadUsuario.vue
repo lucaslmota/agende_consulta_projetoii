@@ -54,7 +54,7 @@
                     </div>
                   </div>
                   <hr>
-                  <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="location.href='index.html';">Cadastar</button><br/>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" @click="PostUsuario">Cadastar</button><br/>
                   <router-link to="pagina-inicial">
                       <button type="reset" class="btn btn-primary btn-lg btn-block">Voltar</button>
                   </router-link>
@@ -79,7 +79,9 @@ export default {
             return {
                 nome: "",
                 usuario: "",
-                senha: ""         
+                senha: "",
+                usuarios: [],
+                baseURI:"http://localhost:3000/usuarios"        
             }
       },
       methods: {
@@ -90,10 +92,10 @@ export default {
               senha: this.senha  
             };
 
-            // FALTA ALTERAR BASE
             axios.post(this.baseURI, obj).then((result) =>{ 
-              this.carros = result.data
+              this.usuarios = result.data
             })
+            alert("USUARIO CADASTRADO!");
         },
 
         PutUsuario(){
@@ -103,7 +105,6 @@ export default {
               senha: this.senha 
             };
 
-            // FALTA ALTERAR BASE
             axios.put(this.baseURI+"/" + this.id, obj).then((result) =>{
               console.log(result)
             })

@@ -130,7 +130,7 @@
                     <input type="text" class="form-control" placeholder="Digite o CBOS" v-model="cbos">
                   </div>
                   <hr>
-                  <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="location.href='index.html';">Cadastar</button> <br/>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" @click="PostMedico">Cadastar</button> <br/>
                   <router-link to="pagina-inicial">
                       <button type="reset" class="btn btn-primary btn-lg btn-block">Voltar</button>
                   </router-link>
@@ -161,7 +161,9 @@ export default {
                 cpf: "",
                 crm: "",
                 estado: "",
-                cbos: ""          
+                cbos: "",
+                medicos: [],
+                baseURI:"http://localhost:3000/medicos"         
             }
       },
       methods: {
@@ -179,10 +181,10 @@ export default {
                 cbos: this.cbos  
             };
             
-            // FALTA ALTERAR BASE
-            axios.post(this.baseURI, obj).then((resul) =>{ 
-                this.carros = resul.data
+            axios.post(this.baseURI, obj).then((result) =>{ 
+                this.medicos = result.data
             })
+            alert("MEDICO CADASTRADO!");
         },
 
         PutMedico(){
@@ -199,7 +201,6 @@ export default {
                 cbos: this.cbos  
             };
 
-            // FALTA ALTERAR BASE
             axios.put(this.baseURI+"/" + this.id, obj).then((result) =>{
               console.log(result)
             })

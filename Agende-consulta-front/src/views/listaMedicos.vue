@@ -37,6 +37,7 @@
                         <hr/>
                         <br/>
                         <div class="mb-4 row justify-content-md-center">
+                            <!-- <button type="submit" class="btn btn-primary btn-lg btn-block" @click="getAll">Mostrar</button><br/> -->
                             <router-link to="pagina-inicial">
                                 <button type="reset" class="btn btn-light btn-lg btn-block">Voltar</button>
                             </router-link>
@@ -47,8 +48,36 @@
 </template>
 
 <script>
-export default {
+import axios from "axios";
 
+export default {
+      data() {
+            return {
+                nome: "",
+                email: "",
+                telefone: "",
+                celular: "",
+                dtNascimento: "",
+                sexo: "",
+                cpf: "",
+                crm: "",
+                estado: "",
+                cbos: "",
+                medicos: [],
+                baseURI:"http://localhost:3000/medicos"      
+            }
+      },
+      methods:{
+        getAll() {
+            axios.get(this.baseURI).then((result) =>{
+                    this.medicos = result.data
+                })
+        }
+    },
+    
+    created: function(){
+        this.$nextTick(this.getAll)
+    }
 }
 </script>
 

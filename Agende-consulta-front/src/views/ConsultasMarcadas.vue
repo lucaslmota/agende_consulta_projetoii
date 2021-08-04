@@ -31,7 +31,7 @@
                         <div class="p-5">
                             
                             <hr>
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="location.href='index.html';">Cadastar</button><br/>
+                            <!-- <button type="submit" class="btn btn-primary btn-lg btn-block" @click="getAll">Mostrar</button><br/> -->
                             <router-link to="pagina-inicial">
                                 <button type="reset" class="btn btn-primary btn-lg btn-block">Voltar</button>
                             </router-link>    
@@ -45,8 +45,30 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+    data() {
+        return {
+            paciente: "",
+            medico: "",
+            data: "",
+            horario: "",
+            consultas: [],
+            baseURI:"http://localhost:3000/consultas"
+        }
+    },
 
+    methods:{
+        getAll() {
+            axios.get(this.baseURI).then((result) =>{
+                    this.consultas = result.data
+                })
+        }
+    },
+    
+    created: function(){
+        this.$nextTick(this.getAll)
+    }
 }
 </script>
 
