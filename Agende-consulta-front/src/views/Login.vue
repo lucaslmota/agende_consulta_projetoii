@@ -79,7 +79,7 @@ data() {
             usuario: "",
             senha: "",
             usuarios: [],
-            usuario: [],
+            usuarioArray: [],
             baseURI:"http://localhost:3000/usuarios"    
     }
 },
@@ -92,10 +92,10 @@ methods: {
                 })
         },
 
-        login(usuario) {
+        // login(usuario) {
             
 
-        }
+        // }
     }
     
 },

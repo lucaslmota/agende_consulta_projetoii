@@ -30,7 +30,7 @@ const routes = [
   {
     path: "/lista-medicos",
     name:"Lista Médicos",
-    component: () => import("../views/ListaMedicos.vue")
+    component: () => import("../views/listaMedicos.vue")
   },
   {
     path: "/lista-pacientes",
