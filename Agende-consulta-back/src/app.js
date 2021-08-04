@@ -11,10 +11,14 @@ app.use(express.urlencoded({ extended: true }));
 const index = require("./routes/index");
 const pacientes = require("./routes/paciente-route");
 const medicos = require("./routes/medico-route");
+const consultas = require("./routes/consulta-rout");
+const usuarios = require("./routes/usuarui-route");
 
 app.use("/", index);
 app.use("/pacientes",pacientes);
 app.use("/medicos",medicos);
+app.use("/consultas",consultas);
+app.use("./usuarios",usuarios);
 app.use((req, res, next) => {
     res.status(404).send({
       status: 404,
