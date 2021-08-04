@@ -170,7 +170,9 @@ export default {
         },
 
         DeleteConsulta(){
-          axios.delete(this.baseURI +"/"+this.id,).then((result) =>{})
+          axios.delete(this.baseURI +"/"+this.id,).then((result) =>{
+              console.log(result)
+          })
         },
 
         getMedicoPaciente() {
