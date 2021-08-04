@@ -55,9 +55,8 @@
                   </div>
                   <hr>
                   <button type="submit" class="btn btn-primary btn-lg btn-block" @click="PostUsuario">Cadastar</button><br/>
-                  <router-link to="pagina-inicial">
-                      <button type="reset" class="btn btn-primary btn-lg btn-block">Voltar</button>
-                  </router-link>
+                  <button type="reset" class="btn btn-primary btn-lg btn-block" @click="this.$router.replace('pagina-inicial')">Voltar</button>
+                  
                   
 
                 </div>
@@ -96,6 +95,7 @@ export default {
               this.usuarios = result.data
             })
             alert("USUARIO CADASTRADO!");
+
         },
 
         PutUsuario(){

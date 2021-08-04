@@ -44,9 +44,7 @@
                         <br/>
                         <div class="mb-4 row justify-content-md-center">
                             <!-- <button type="submit" class="btn btn-primary btn-lg btn-block" @click="getAll">Mostrar</button><br/> -->
-                            <router-link to="pagina-inicial">
-                                <button type="reset" class="btn btn-light btn-lg btn-block">Voltar</button>
-                            </router-link>
+                            <button type="reset" class="btn btn-light btn-lg btn-block" @click="this.$router.replace('pagina-inicial')">Voltar</button>
                         </div>
             </div>
         </div>

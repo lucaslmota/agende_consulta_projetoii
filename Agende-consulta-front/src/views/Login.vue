@@ -79,7 +79,7 @@ data() {
             usuario: "",
             senha: "",
             usuarios: [],
-            usuarios: [],
+            usuario: [],
             baseURI:"http://localhost:3000/usuarios"    
     }
 },
@@ -88,7 +88,7 @@ methods: {
     methods:{
         getAll() {
             axios.get(this.baseURI).then((result) =>{
-                    this.pacientes = result.data
+                    this.usuarios = result.data
                 })
         },
 
