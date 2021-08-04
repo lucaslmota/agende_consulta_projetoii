@@ -97,6 +97,7 @@
                             </div>
                         </div>
                   <hr>
+        
                     <button type="submit" class="btn btn-primary btn-lg btn-block" @click="PostConsulta">Marcar</button><br/>
                     <button type="reset" class="btn btn-primary btn-lg btn-block" @click="this.$router.replace('pagina-inicial')">Voltar</button>
                   

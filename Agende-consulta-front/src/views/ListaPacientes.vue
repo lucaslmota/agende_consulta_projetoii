@@ -42,7 +42,7 @@
                         <br/>
                         <hr/>
                         <br/>
-                        <div class="mb-4 row justify-content-md-center">
+                        <div class="mb-4 row justify-content-md-center w-25">
                             <!-- <button type="submit" class="btn btn-primary btn-lg btn-block" @click="getAll">Mostrar</button><br/> -->
                             <button type="reset" class="btn btn-light btn-lg btn-block" @click="this.$router.replace('pagina-inicial')">Voltar</button>
                         </div>
