@@ -36,9 +36,9 @@
                         <br/>
                         <hr/>
                         <br/>
-                        <div class="mb-4 justify-content-md-center col-md-auto w-25">
+                        <div class="mb-4 justify-content-md-center col-md-auto w-25 centraliza">
                             <!-- <button type="submit" class="btn btn-primary btn-lg btn-block" @click="getAll">Mostrar</button><br/> -->
-                            <button type="reset" class="btn btn-light btn-lg btn-block" @click="this.$router.replace('pagina-inicial')">Voltar</button>
+                            <button type="reset" class="btn btn-light btn-lg btn-block " @click="this.$router.replace('pagina-inicial')">Voltar</button>
                             
                         </div>
             </div>
@@ -81,5 +81,10 @@ export default {
 </script>
 
 <style>
+
+.centraliza {
+    width: 555px;
+    margin: auto;
+}
 
 </style>

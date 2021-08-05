@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <h1 class="h4 text-light mb-5 align-center">Lista de Pacietes</h1>
+      <h1 class="h4 text-light mb-4 align-center">Lista de Pacietes</h1>
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0 d-none d-lg-block bg-primary text-center">
                 <div class="px-2 border-0 shadow-lg my-5 ">
@@ -42,9 +42,11 @@
                         <br/>
                         <hr/>
                         <br/>
-                        <div class="mb-4 row justify-content-md-center w-25">
+                        
+                        <div class="mb-4 justify-content-md-center col-md-auto w-25 centraliza">
                             <!-- <button type="submit" class="btn btn-primary btn-lg btn-block" @click="getAll">Mostrar</button><br/> -->
                             <button type="reset" class="btn btn-light btn-lg btn-block" @click="this.$router.replace('pagina-inicial')">Voltar</button>
+                            
                         </div>
             </div>
         </div>
@@ -89,5 +91,10 @@ export default {
 </script>
 
 <style>
+
+.centraliza {
+    width: 555px;
+    margin: auto;
+}
 
 </style>
