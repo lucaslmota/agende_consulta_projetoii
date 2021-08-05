@@ -16,7 +16,7 @@
               </div>
               <hr>
 
-              <form action="pgInicial.html" name="form" method="POST" class="needs-validation" novalidate>
+              
                 <div>
                      <!-- Dados de contato -->
                     <label for=""><i class="fas fa-user"></i> Dados de Contato</label><br>
@@ -135,7 +135,7 @@
                 
 
                 </div>
-              </form>
+              
             </div>
           </div>
         </div>

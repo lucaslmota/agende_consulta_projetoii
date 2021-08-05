@@ -16,7 +16,7 @@
               </div>
               <hr>
 
-              <form name="form" method="POST" class="needs-validation" novalidate>
+              
                 <div>
                   <!-- Dados para Acesso -->
                   <label for=""><i class="fas fa-user"></i> Dados de Contato</label><br>
@@ -156,7 +156,7 @@
                   
 
                 </div>
-              </form>
+              
             </div>
           </div>
         </div>

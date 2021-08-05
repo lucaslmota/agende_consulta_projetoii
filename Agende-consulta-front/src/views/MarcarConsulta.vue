@@ -49,7 +49,7 @@
                             </div>
                         <hr>
 
-                        <form action="pgInicial.html" name="form" method="POST" class="needs-validation" novalidate>
+                        
                             <div>
                             <label for=""><i class="fas fa-user"></i> Dados da Consulta</label><br>
 
@@ -103,7 +103,7 @@
                   
 
                 </div>
-              </form>
+              
             </div>
           </div>
         </div>
