@@ -80,7 +80,7 @@
                             <div class="form-row">
                     
                             <div class="col left-inner-addon">
-                                <input type="date" class="form-control" placeholder="Data" v-model="data" required>
+                                <input type="text" class="form-control" placeholder="Data" v-model="data" required>
                                 <div class="invalid-feedback">
                                     Data da consulta é obrigatória
                                 </div>

@@ -84,6 +84,13 @@ export default {
             }
       },
       methods: {
+        limpar(){
+          this.nome = "",
+          this.usuario = "",
+          this.senha = ""
+
+        },
+
         PostUsuario(){
             let obj ={
               nome: this.nome,
@@ -94,8 +101,9 @@ export default {
             axios.post(this.baseURI, obj).then((result) =>{ 
               this.usuarios = result.data
             })
+            
             alert("USUARIO CADASTRADO!");
-
+            this.limpar();
         },
 
         PutUsuario(){
@@ -115,6 +123,7 @@ export default {
             console.log(result)
           })
         }
+
       },
 }
 </script>

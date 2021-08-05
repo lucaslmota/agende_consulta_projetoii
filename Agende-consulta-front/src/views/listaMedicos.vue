@@ -71,7 +71,8 @@ export default {
             axios.get(this.baseURI).then((result) =>{
                     this.medicos = result.data
                 })
-        }
+        },
+
     },
     
     created: function(){

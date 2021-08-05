@@ -75,7 +75,7 @@
                     <!-- Data e Sexo -->
                     <div class="col">
                       <!-- Data -->
-                      <input type="date" class="form-control" placeholder="Data de nascimento" v-model="dtNascimento" required>
+                      <input type="text" class="form-control" placeholder="Data de nascimento" v-model="dtNascimento" required>
                       <div class="invalid-feedback">
                         Data de nascimento é obrigatória.
                       </div>
@@ -83,12 +83,7 @@
 
                     <div class="form-group col-md-4">
                       <!-- Sexo -->
-                      <select class="custom-select" v-model="sexo" required>
-                        <option selected>Selecione o sexo</option>
-                        <option>Feminino</option>
-                        <option>Masculino</option>
-                        <option>Outro...</option>
-                      </select>
+                      <input type="text" class="form-control" placeholder="Sexo" v-model="sexo" required>
                       <div class="invalid-feedback">
                         Selecione o sexo.
                       </div>
@@ -166,6 +161,19 @@ export default {
             }
       },
       methods: {
+        limpar(){
+            this.nome = "",
+            this.email = "",
+            this.telefone = "",
+            this.celular = "",
+            this.dtNascimento = "",
+            this.sexo = "",
+            this.cpf = "",
+            this.crm = "",
+            this.estado = "",
+            this.cbos = "" 
+        },
+
         PostMedico(){
             let obj ={
                 nome: this.nome,
@@ -184,6 +192,7 @@ export default {
                 this.medicos = result.data
             })
             alert("MEDICO CADASTRADO!");
+            this.limpar();
         },
 
         PutMedico(){

@@ -190,6 +190,22 @@ export default {
             }
       },
       methods: {
+        limpar(){
+            this.nome = "",
+            this.email = "",
+            this.telefone = "",
+            this.celular = "",
+            this.dtNascimento = "",
+            this.sexo = "",
+            this.cpf = "",
+            this.rua = "",
+            this.cep = "",
+            this.numCasa = "",
+            this.complemento = "",
+            this.bairro = "",
+            this.cidade = ""
+        },
+
         PostPaciente(){
             let obj ={
               nome: this.nome,
@@ -211,6 +227,7 @@ export default {
               this.pacientes = result.data
             })
             alert("PACIENTE CADASTRADO!");
+            this.limpar();
         },
 
         PutPaciente(){
