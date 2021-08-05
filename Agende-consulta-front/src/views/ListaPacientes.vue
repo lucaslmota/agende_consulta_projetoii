@@ -25,7 +25,7 @@
                             <tr  v-for="paciente in pacientes " :key="paciente.id" >
                                 <td>{{ paciente.nome}}</td>
                                 <td>{{ paciente.cpf }}</td>
-                                <td>{{ paciente.dtNascimento }}</td>
+                                <td>{{ paciente.datanacimento }}</td>
                                 <td>{{ paciente.sexo }}</td>
                                 <td>{{ paciente.rua}}</td>
                                 <td>{{ paciente.numCasa }}</td>
@@ -63,7 +63,7 @@ export default {
                 email: "",
                 telefone: "",
                 celular: "",
-                dtNascimento: "",
+                datanacimento: "",
                 sexo: "",
                 cpf: "",
                 rua: "",

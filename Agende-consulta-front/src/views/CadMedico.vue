@@ -32,6 +32,16 @@
                     </div>
                   </div>
 
+                  <div class="form-group left-inner-addon">
+                    <!-- E-mail -->
+                    <i class="fas fa-lock"></i>
+                    <input type="email" name="email" onblur="validarEmail(form.email)" class="form-control"
+                      placeholder="Senha" v-model="senha" required>
+                    <div class="invalid-feedback">
+                      Seu e-mail é obrigatório.
+                    </div>
+                  </div>
+
                   <div class="form-row">
                     <!-- Criar e Confirmar senha -->
                     <div class="col left-inner-addon">
@@ -66,6 +76,14 @@
                       <input type="text" class="form-control" placeholder="Nome" v-model="nome" required>
                       <div class="invalid-feedback">
                         O nome é obrigatório.
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <!-- Sobrenome -->
+                      <input type="text" class="form-control" placeholder="Sobrenome" v-model="sobreNome" required>
+                      <div class="invalid-feedback">
+                        O sobrenome é obrigatório.
                       </div>
                     </div>
                   </div>
@@ -147,6 +165,8 @@ export default {
       data() {
             return {
                 nome: "",
+                sobrenome:"",
+                senha:"",
                 email: "",
                 telefone: "",
                 celular: "",
@@ -161,22 +181,12 @@ export default {
             }
       },
       methods: {
-        limpar(){
-            this.nome = "",
-            this.email = "",
-            this.telefone = "",
-            this.celular = "",
-            this.dtNascimento = "",
-            this.sexo = "",
-            this.cpf = "",
-            this.crm = "",
-            this.estado = "",
-            this.cbos = "" 
-        },
-
+        
         PostMedico(){
             let obj ={
                 nome: this.nome,
+                sobrenome:this.sobrenome,
+                senha:this.senha,
                 email: this.email,
                 telefone: this.telefone,
                 celular: this.celular,
@@ -192,12 +202,14 @@ export default {
                 this.medicos = result.data
             })
             alert("MEDICO CADASTRADO!");
-            this.limpar();
+           
         },
 
         PutMedico(){
             let obj ={
                 nome: this.nome,
+                sobrenome:this.sobrenome,
+                senha:this.senha,
                 email: this.email,
                 telefone: this.telefone,
                 celular: this.celular,

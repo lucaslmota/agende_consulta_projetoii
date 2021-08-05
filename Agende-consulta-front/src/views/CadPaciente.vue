@@ -6,7 +6,7 @@
           <div class="col-lg-5 d-none d-lg-block bg-primary">
             <div class="text-center">
               <br>
-              <img src="" alt="" id="logo">
+              <img src="" alt="" id="logo" width="70%">
             </div>
           </div>
           <div class="col-lg-7">
@@ -18,14 +18,15 @@
 
               
                 <div>
-                  <!-- Dados para Acesso -->
-                  <label for=""><i class="fas fa-user"></i> Dados de Contato</label><br>
+                     <!-- Dados de contato -->
+                    <label for=""><i class="fas fa-user"></i> Dados de Contato</label><br>
+
 
                   <div class="form-group left-inner-addon">
                     <!-- E-mail -->
                     <i class="fas fa-envelope"></i>
-                    <input type="email" name="email" onblur="validarEmail(form.email)" class="form-control"
-                      placeholder="E-mail do paciente" v-model="email" required>
+                    <input type="email" name="email"  class="form-control"
+                      placeholder="E-mail do Paciente" v-model="email" required>
                     <div class="invalid-feedback">
                       Seu e-mail é obrigatório.
                     </div>
@@ -48,7 +49,7 @@
                       <i class="fas fa-phone-alt"></i>
                       <input type="text" id="telefone" name="telefone" class="form-control"
                         pattern="\([0-9]{2})\[\s][0-9]{4}-[0-9]{4,5}" data-mask="(00) 00000-0000"
-                        placeholder="Digite o telefone" v-model="telefone">
+                        placeholder="Digite o telefone" v-model="telFixo">
 
                     </div>
                   </div>
@@ -57,7 +58,7 @@
 
                 <div>
                   <!-- Dados Pessoais -->
-                  <label for=""><i class="fas fa-list-ul"></i> Dados Pessoais</label>
+                  <label for=""><i class="fas fa-list-ul"></i> Dados do Pessoais</label>
 
                   <div class="form-row">
                     <div class="col">
@@ -67,6 +68,14 @@
                         O nome é obrigatório.
                       </div>
                     </div>
+
+                    <div class="col">
+                      <!-- Sobrenome -->
+                      <input type="text" class="form-control" placeholder="Sobrenome" v-model="sobrenome" required>
+                      <div class="invalid-feedback">
+                        O sobrenome é obrigatório.
+                      </div>
+                    </div>
                   </div>
                   <br>
 
@@ -74,9 +83,9 @@
                     <!-- Data e Sexo -->
                     <div class="col">
                       <!-- Data -->
-                      <input type="text" class="form-control" placeholder="Data de nascimento" v-model="dtNascimento" required>
+                      <input type="text" class="form-control" placeholder="Data de nascimento" v-model="datanacimento" required>
                       <div class="invalid-feedback">
-                        Sua data de nascimento é obrigatória.
+                        Data de nascimento é obrigatória.
                       </div>
                     </div>
 
@@ -90,8 +99,7 @@
                   </div>
 
                   <div class="form-group">
-                    <!-- CNPJ -->
-                    <input type="text" class="form-control" placeholder="CPF do paciente"
+                    <input type="text" class="form-control" placeholder="CPF do Paciente"
                       pattern="/^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})$/" data-mask="000.000.000.-00" v-model="cpf">
                   </div>
                 </div>
@@ -113,8 +121,8 @@
 
                     <div class="form-group col-md-4">
                       <!-- CEP -->
-                      <input type="text" class="form-control" placeholder="Digite o CEP"
-                        pattern="\[0-9]{5}\[\s]-[0-9]{3}" data-mask="00000-000" v-model="cep" required>
+                      <input type="text" class="form-control" placeholder="Digite o CEP" v-model="cep"
+                        pattern="\[0-9]{5}\[\s]-[0-9]{3}" data-mask="00000-000" required>
                         <div class="invalid-feedback">
                           O cep é obrigatório.
                         </div>
@@ -125,7 +133,7 @@
                     <!-- Nº e Complemento -->
                     <div class="form-group col-md-4">
                       <!-- Nº -->
-                      <input type="text" class="form-control" placeholder="Digite o Nº" v-model="numCasa">
+                      <input type="text" class="form-control" placeholder="Digite o Nº" v-model="numcasa">
                     </div>
 
                     <div class="form-group col-md-8">
@@ -143,17 +151,15 @@
                     <!-- Cidade e Estado -->
                     <div class="form-group col-md-12">
                       <!-- Cidade -->
-                      <input type="text" class="form-control" placeholder="Digite a cidade" v-model="cidade" required>
+                      <input type="text" class="form-control" placeholder="Digite a cidade" required v-model="cidade">
                       <div class="invalid-feedback">
                         Digite uma cidade válida.
                       </div>
                     </div>
                   </div>
                   <hr>
-                  <button type="submit" class="btn btn-primary btn-lg btn-block" @click="PostPaciente">Cadastar</button><br/>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" @click="PostPaciente">Cadastar</button> <br/>
                   <button type="reset" class="btn btn-primary btn-lg btn-block" @click="this.$router.replace('pagina-inicial')">Voltar</button>
-                  
-                  
 
                 </div>
               
@@ -169,97 +175,101 @@
 import axios from "axios";
 
 export default {
-  nome: 'CadPaciente',
+    nome: 'CadMedico',
       data() {
             return {
-                nome: "",
-                email: "",
-                telefone: "",
-                celular: "",
-                dtNascimento: "",
-                sexo: "",
-                cpf: "",
-                rua: "",
-                cep: "",
-                numCasa: "",
-                complemento: "",
-                bairro: "",
-                cidade: "",
-                pacientes: [],
-                baseURI:"http://localhost:3000/pacientes"         
+                id:"",
+                email:"",
+                celular:"",
+                telFixo:"",
+                nome:"",
+                sobrenome:"",
+                datanacimento:"",
+                sexo:"",
+                cpf:"",
+                rua:"",
+                cep:"",
+                numcasa:"",
+                complemento:"",
+                bairro:"",
+                cidade:"",
+                pacientes:[],
+                baseURI:"http://localhost:3000/pacientes"        
             }
       },
       methods: {
-        limpar(){
-            this.nome = "",
-            this.email = "",
-            this.telefone = "",
-            this.celular = "",
-            this.dtNascimento = "",
-            this.sexo = "",
-            this.cpf = "",
-            this.rua = "",
-            this.cep = "",
-            this.numCasa = "",
-            this.complemento = "",
-            this.bairro = "",
-            this.cidade = ""
-        },
+        // limpar(){
+        //     this.email ="",
+        //         this.celular="",
+        //         this.telFixo="",
+        //         this.nome="",
+        //         this.sobreNome="",
+        //         this.datanacimento="",
+        //         this.sexo="",
+        //         this.cpf="",
+        //         this.rua="",
+        //         this.cep="",
+        //         this.numcasa="",
+        //         this.complemento="",
+        //         this.bairro="",
+        //         this.cidade=""
+        // },
 
         PostPaciente(){
             let obj ={
               nome: this.nome,
+              sobrenome: this.sobrenome,
               email: this.email,
-              telefone: this.telefone,
+              telFixo: this.telFixo,
               celular: this.celular,
-              dtNascimento: this.dtNascimento,
+              datanacimento: this.datanacimento,
               sexo: this.sexo,
               cpf: this.cpf,
               rua: this.rua,
               cep: this.cep,
-              numCasa: this.numCasa,
+              numcasa: this.numcasa,
               complemento: this.complemento,
               bairro: this.bairro,
-              cidade: this.cidade  
+              cidade: this.cidade   
             };
-
+            
             axios.post(this.baseURI, obj).then((result) =>{ 
-              this.pacientes = result.data
+                this.pacientes = result.data
             })
             alert("PACIENTE CADASTRADO!");
-            this.limpar();
+            
         },
 
         PutPaciente(){
             let obj ={
               nome: this.nome,
+              sobrenome: this.sobrenome,
               email: this.email,
-              telefone: this.telefone,
+              telFixo: this.telFixo,
               celular: this.celular,
-              dtNascimento: this.dtNascimento,
+              datanacimento: this.datanacimento,
               sexo: this.sexo,
               cpf: this.cpf,
               rua: this.rua,
               cep: this.cep,
-              numCasa: this.numCasa,
+              numcasa: this.numcasa,
               complemento: this.complemento,
               bairro: this.bairro,
-              cidade: this.cidade
-
+              cidade: this.cidade   
             };
 
-          
             axios.put(this.baseURI+"/" + this.id, obj).then((result) =>{
               console.log(result)
             })
         },
 
         DeletePaciente(){
-           axios.delete(this.baseURI +"/"+this.id,).then((result) =>{
-             console.log(result)
-           })
+          axios.delete(this.baseURI +"/"+this.id,).then((result) =>{
+            console.log(result)
+          })
         }
       },
+
 }
 </script>
 

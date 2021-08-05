@@ -8,12 +8,9 @@
                         <table class="table table-striped table-light rounded">
                             <tr>
                                 <td>NOME</td>
+                                <td>SOBRENOME</td>
                                 <td>CPF</td>
-                                <td>DATA DE NASCIMENTO</td>
-                                <td>SEXO</td>
                                 <td>CRM</td>
-                                <td>ESTADO</td>
-                                <td>CBOS</td>
                                 <td>EMAIL</td>
                                 <td>TELEFONE</td>
                                 <td>CELULAR</td>
@@ -21,14 +18,11 @@
                             <!-- FALTA ALTERAR -->
                             <tr  v-for="medico in medicos " :key="medico.id" >
                                 <td>{{ medico.nome}}</td>
+                                <td>{{ medico.sobrenome}}</td>
                                 <td>{{ medico.cpf }}</td>
-                                <td>{{ medico.dtNascimento }}</td>
-                                <td>{{ medico.sexo }}</td>
                                 <td>{{ medico.crm}}</td>
-                                <td>{{ medico.estado }}</td>
-                                <td>{{ medico.cbos }}</td>
                                 <td>{{ medico.email }}</td>
-                                <td>{{ medico.telefone }}</td>
+                                <td>{{ medico.telfixo }}</td>
                                 <td>{{ medico.celular }}</td>
                             </tr>
                         </table>
@@ -52,16 +46,13 @@ import axios from "axios";
 export default {
       data() {
             return {
-                nome: "",
                 email: "",
-                telefone: "",
+                nome: "",
+                sobrenome:"",
+                telfixo: "",
                 celular: "",
-                dtNascimento: "",
-                sexo: "",
                 cpf: "",
                 crm: "",
-                estado: "",
-                cbos: "",
                 medicos: [],
                 baseURI:"http://localhost:3000/medicos"      
             }
